@@ -129,7 +129,11 @@ tdado removeLista(tlista *l, tdado v){
 		aux=l->head;
 		while(aux!=NULL){
 			if(v == aux->dado){
-				//??
+				retorno = aux->dado;
+				aux->prox->ant = aux->ant;
+				aux->ant->prox = aux->prox;
+				free(aux);
+				return retorno;
 			}// fim if
 			aux=aux->prox;
 		}// fim while      
